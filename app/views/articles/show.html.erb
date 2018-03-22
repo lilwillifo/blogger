@@ -1,3 +1,4 @@
 <%= @article.title %>
 <%= @article.body %>
+<%= link_to "delete", article_path(@article), method: :delete %>
 <%= link_to "<< Back to Articles List", articles_path %>
