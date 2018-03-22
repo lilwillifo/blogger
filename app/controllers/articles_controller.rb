@@ -7,4 +7,24 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+    @article.save
+    redirect_to article_path(@article)
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :body)
+  end
+  # For security reasons, its not a good idea to
+  # blindly save parameters sent to us via the params hash.
+  # Luckily, Rails gives us a feature to deal with this situation:
+  # Strong Parameters.
 end
