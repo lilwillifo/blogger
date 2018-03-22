@@ -3,7 +3,13 @@
 <ul id="articles">
   <% @articles.each do |article| %>
     <li>
-      <%= article.title %>
+      <%= link_to article.title, article_path(article), class: 'article-title' %>
+      <!-- The first part of this helper after the link_to, in this case article.title,
+      is the text you want the link to say. The next part is our route helper.
+      Note that when you pass an entire object as an argument,
+      Rails takes the id from the object and builds the route from there. -->
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Create a New Article", new_article_path, class: 'new-article' %>
