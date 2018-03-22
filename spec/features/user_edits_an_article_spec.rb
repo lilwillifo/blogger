@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "user edtsi an article" do
+describe "user edits an article" do
   describe "they link from the show page" do
     context "they fill in an edit field" do
       it "dispays the updated information on show" do
@@ -14,7 +14,6 @@ describe "user edtsi an article" do
 
         expect(page).to have_content("nAmE")
         expect(page).to have_content("text")
-
       end
     end
   end
