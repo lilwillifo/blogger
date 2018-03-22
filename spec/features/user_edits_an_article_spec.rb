@@ -7,11 +7,12 @@ describe "user edits an article" do
         article = Article.create!(title: "name", body: "text")
 
         visit article_path(article)
-        click_link "Edit"
+        click_link "edit"
         fill_in "article[title]", with: "nAmE"
         fill_in "article[body]", with: "text"
-        click_on "Edit Article"
+        click_on "Update Article"
 
+        expect(current_path).to eq(article_path(article))
         expect(page).to have_content("nAmE")
         expect(page).to have_content("text")
       end
