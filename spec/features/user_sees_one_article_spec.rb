@@ -30,6 +30,7 @@ describe 'user sees one article' do
 
       expect(current_path).to eq(article_path(article))
       expect(page).to have_content("Post a Comment")
+      expect(page).to have_content("Comments (#{article.comments.count})")
       expect(page).to have_content("Margaret")
       expect(page).to have_content("SoOoO many thoughts on this article.")
     end
