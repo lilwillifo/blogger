@@ -7,6 +7,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comment.article_id = @article.id
+    # Why do we use Comment.new instead of @article.comments.new?
   end
 
   def new
